@@ -11,6 +11,7 @@ export default class StudentList extends Component {
     this.state = {
       students: []
     };
+    this.deleteStudent = this.deleteStudent.bind(this);
   }
 
   componentDidMount() {
