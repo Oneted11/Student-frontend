@@ -24,10 +24,23 @@ export default class StudentList extends Component {
         console.log(error);
       })
   }
+  deleteStudent(deleteId) {
+    axios
+      .delete(
+        "https://student-end-back.herokuapp.com/students/delete-student/" +
+          deleteId
+      )
+      .then((res) => {
+        console.log("Student successfully deleted!");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   DataTable() {
     return this.state.students.map((res, i) => {
-      return <StudentTableRow obj={res} key={i} />;
+      return <StudentTableRow obj={res} deleteStudent={this.deleteStudent()}key={i} />;
     });
   }
 

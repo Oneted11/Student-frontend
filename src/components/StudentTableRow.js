@@ -6,22 +6,22 @@ import Button from "react-bootstrap/Button";
 export default class StudentTableRow extends Component {
   constructor(props) {
     super(props);
-    this.deleteStudent = this.deleteStudent.bind(this);
+    // this.deleteStudent = this.deleteStudent.bind(this);
   }
 
-  deleteStudent() {
-    axios
-      .delete(
-        "https://student-end-back.herokuapp.com/students/delete-student/" +
-          this.props.obj._id
-      )
-      .then((res) => {
-        console.log("Student successfully deleted!");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  // deleteStudent() {
+  //   axios
+  //     .delete(
+  //       "https://student-end-back.herokuapp.com/students/delete-student/" +
+  //         this.props.obj._id
+  //     )
+  //     .then((res) => {
+  //       console.log("Student successfully deleted!");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
 
   render() {
     return (
@@ -37,7 +37,11 @@ export default class StudentTableRow extends Component {
           >
             Edit
           </Link>
-          <Button onClick={this.deleteStudent} size="sm" variant="danger">
+          <Button
+            onClick={this.props.deleteStudent(this.props.obj._id)}
+            size="sm"
+            variant="danger"
+          >
             Delete
           </Button>
         </td>
