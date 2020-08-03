@@ -22,7 +22,7 @@ export default class EditStudent extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://student-end-back.herokuapp.com//students/edit-student/' + this.props.match.params.id)
+    axios.get('https://student-end-back.herokuapp.com/students/edit-student/' + this.props.match.params.id)
       .then(res => {
         this.setState({
           name: res.data.name,
@@ -56,7 +56,7 @@ export default class EditStudent extends Component {
       rollno: this.state.rollno
     };
 
-    axios.put('https://student-end-back.herokuapp.com//students/update-student/' + this.props.match.params.id, studentObject)
+    axios.put('https://student-end-back.herokuapp.com/students/update-student/' + this.props.match.params.id, studentObject)
       .then((res) => {
         console.log(res.data)
         console.log('Student successfully updated')
