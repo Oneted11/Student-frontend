@@ -12,7 +12,7 @@ export default class StudentTableRow extends Component {
   deleteStudent() {
     axios
       .delete(
-        "https://git.heroku.com/student-end-back.git/students/delete-student/" + this.props.obj._id
+        "https://student-end-back.herokuapp.com//students/delete-student/" + this.props.obj._id
       )
       .then((res) => {
         console.log("Student successfully deleted!");
