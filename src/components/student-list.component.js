@@ -14,7 +14,7 @@ export default class StudentList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/students/')
+    axios.get('https://git.heroku.com/student-end-back.git/students/')
       .then(res => {
         this.setState({
           students: res.data
