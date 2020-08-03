@@ -4,26 +4,12 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 
 export default class StudentTableRow extends Component {
-  constructor(props) {
-    super(props);
-    // this.deleteStudent = this.deleteStudent.bind(this);
-  }
-
-  // deleteStudent() {
-  //   axios
-  //     .delete(
-  //       "https://student-end-back.herokuapp.com/students/delete-student/" +
-  //         this.props.obj._id
-  //     )
-  //     .then((res) => {
-  //       console.log("Student successfully deleted!");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
-
   render() {
+    const StudentDelete = () => {
+      console.log("it gets to studentDelete", this.props.obj._id);
+      this.props.deleteStudent(this.props.obj._id);
+      console.log("after calling studentdelete");
+    };
     return (
       <tr>
         <td>{this.props.obj.name}</td>
@@ -37,11 +23,7 @@ export default class StudentTableRow extends Component {
           >
             Edit
           </Link>
-          <Button
-            onClick={this.props.deleteStudent(this.props.obj._id)}
-            size="sm"
-            variant="danger"
-          >
+          <Button onClick={() => StudentDelete()} size="sm" variant="danger">
             Delete
           </Button>
         </td>

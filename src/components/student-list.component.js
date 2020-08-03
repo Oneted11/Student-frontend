@@ -11,7 +11,7 @@ export default class StudentList extends Component {
     this.state = {
       students: []
     };
-    this.deleteStudent = this.deleteStudent.bind(this);
+    // this.deleteStudent = this.deleteStudent.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +26,7 @@ export default class StudentList extends Component {
       })
   }
   deleteStudent(deleteId) {
+    console.log("deleteId=>",deleteId)
     axios
       .delete(
         "https://student-end-back.herokuapp.com/students/delete-student/" +
@@ -41,7 +42,7 @@ export default class StudentList extends Component {
 
   DataTable() {
     return this.state.students.map((res, i) => {
-      return <StudentTableRow obj={res} deleteStudent={this.deleteStudent()}key={i} />;
+      return <StudentTableRow obj={res} deleteStudent={(id)=>this.deleteStudent(id)} key={i} />;
     });
   }
 
